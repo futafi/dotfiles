@@ -1,0 +1,95 @@
+snippet \template
+alias templatelong
+	\documentclass[a4paper,uplatex,${1}]{${2:jsarticle}}${4}
+    \graphicspath{{./graphics/}}
+    \title{$5}
+    \author{$6}
+    \date{${7:\today}}
+    \begin{document}
+    $0
+    \end{document}
+
+
+snippet \tabref
+alias tabref
+    \tabref{tab:${1}}
+
+snippet \figref
+alias figref
+    \figref{fig:${1}}
+
+snippet refr
+alias \refr rer rar
+	\ref{${1:fig}:${2:#:num}}${0}
+    
+snippet refrr
+alias \refr rerr rarr
+	\ref{${1:fig}:${2:#:num}:${3:#:subnum}}${0}
+    
+snippet labelr
+alias   \labelr lar
+	\label{${1:fig}:${2:#:num}}${0}
+    
+snippet labelrr
+alias   \labelrr larr
+	\label{${1:fig}:${2:#:num}:${3:#:subnum}}${0}
+    
+snippet \template
+alias template
+    \documentclass[a4paper,uplatex]{jsarticle}
+    \include{begin}
+    ${0:#:text}
+    \include{end}
+snippet \includegraphics
+alias graphics includegraphics
+    \includegraphics[${1:#:option}]{${2:#:file_path}}
+    
+snippet \beg
+alias   beg
+	\begin{${1:#:type}}
+		${2:#:TARGET}
+	\end{$1}
+snippet \bef
+alias   bef
+	\begin{figure}[${1:#:H}]
+        \centering
+        \includegraphics[${2:#:option}]{${3:#:file_path}}
+        \caption{${4:#:caption}}
+        \label{${5}}
+	\end{figure}
+snippet \bet
+alias   bet
+	\begin{table}[${1:#:H}]
+        \centering
+        \includegraphics[${2:#:option}]{${3:}}
+        \caption{${4:#:caption}}
+        \label{${5}}
+	\end{table}
+    
+snippet dots
+alias ...
+    \ldots
+    
+    
+snippet \int
+alias dint integral
+    \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
+    
+snippet \sum
+alias sum
+    \sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+    
+    
+snippet \lim
+alias lim
+    \lim_{${1:n} \to ${2:\infty}} 
+    
+snippet >>
+    \gg
+snippet <<
+    \ll
+    
+snippet \mathrm
+alias t te tex text
+    \mathrm{${1:#:text}}${0:#:next}
+
