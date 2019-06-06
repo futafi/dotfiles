@@ -6,6 +6,8 @@ apt install -y \
   byobu \
   ssh  \
   clang \
-  gcc
+  gcc \
+  go
   
 pip install -r requirements.txt
+go get golang.org/x/tools/cmd/gopls
