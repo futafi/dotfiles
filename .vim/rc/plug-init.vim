@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/neosnippet.vim'
   Plug 'Shougo/neosnippet-snippets'
   Plug 'tpope/vim-fugitive'
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
 call plug#end()
 
 runtime! ~/.vim/plug-config/*.vim
