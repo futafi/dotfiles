@@ -4,5 +4,8 @@ apt install -y \
   screen \
   tmux \
   byobu \
-  ssh 
+  ssh  \
+  clang \
+  gcc
   
+pip install -r requirements.txt
