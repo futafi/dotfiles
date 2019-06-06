@@ -78,7 +78,7 @@ inoremap <CR> <CR>X<C-h>
 " ユーザー辞書
 augroup dictionary
   autocmd!
-  autocmd FileType tex set dictionary+=~/.vim/user_dicts/tex.dict
+  autocmd FileType tex setlocal dictionary+=~/.vim/user_dicts/tex.dict
 augroup END
 
 " コピペ
