@@ -14,4 +14,10 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 let g:lsp_async_completion = 1
-runtime! ~/.vim/plug-config/*.vim
+
+
+source ~/.vim/plug-config/neosnippet.vim
+source ~/.vim/plug-config/nim.vim
+source ~/.vim/plug-config/vim-lsp.vim
+source ~/.vim/plug-config/vimtex.vim
+source ~/.vim/plug-config/nerdcommenter.vim
