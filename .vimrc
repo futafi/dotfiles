@@ -67,9 +67,14 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " " 入力系
 " 補完の大文字小文字の無視
 set infercase
-" タブ補完
+" 補完時の設定
+" set completeopt=menuone
+set completeopt=menuone,longest
+" set completeopt=menuone,preview  
+" ファイル名タブ補完
 set wildmenu
-set wildmode=list:longest,list:longest,full
+" set wildmode=list:longest,longest,full
+set wildmode=list:longest,longest,longest,full
 " 空行のインデントの維持
 nnoremap o ox<C-h>
 nnoremap O OX<C-h>
