@@ -3,11 +3,13 @@ let g:asyncomplete_enable_for_all = 0
 let g:asyncomplete_auto_popup = 0
 
 augroup vimlsp
+  autocmd!
 	autocmd FileType python,go,vim,nim,git,snippet call asyncomplete#enable_for_buffer()
 augroup END
 
 augroup lsppython
 	if executable('pyls')
+    autocmd!
 		" pip install python-language-server
 		autocmd User lsp_setup call lsp#register_server({
 					\ 'name': 'pyls',
