@@ -1,3 +1,9 @@
+#!/bin/bash
+  
+pip install -r requirements.txt
+go get golang.org/x/tools/cmd/gopls
+
+if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 apt install -y \
   git \
   tig \
@@ -8,6 +14,10 @@ apt install -y \
   clang \
   gcc \
   go
-  
-pip install -r requirements.txt
-go get golang.org/x/tools/cmd/gopls
+elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then                                                                                           
+   pacman -Syu \
+   mingw-w64-x86_64-clang \
+   mingw-w64-x86_64-clang-tools-extra
+else
+  echo "platform ($(uname -a)) isn't Linux or Mingw."
+fi
