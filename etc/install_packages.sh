@@ -15,7 +15,7 @@ apt install -y \
   gcc \
   go
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then                                                                                           
-   pacman -Syu \
+   pacman -S \
    mingw-w64-x86_64-clang \
    mingw-w64-x86_64-clang-tools-extra
 else
