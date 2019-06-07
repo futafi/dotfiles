@@ -81,7 +81,7 @@ nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
 
 " ユーザー辞書
-augroup dictionary
+augroup user_dict
   autocmd!
   autocmd FileType tex setlocal dictionary+=~/.vim/user_dicts/tex.dict
 augroup END
