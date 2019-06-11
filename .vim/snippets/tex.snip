@@ -12,11 +12,11 @@ alias templatelong
 
 snippet \tabref
 alias tabref
-    \tabref{tab:${1}}
+    \tabref{${1}}
 
 snippet \figref
 alias figref
-    \figref{fig:${1}}
+    \figref{${1}}
 
 snippet refr
 alias \refr rer rar
@@ -49,23 +49,49 @@ alias   beg
 	\begin{${1:#:type}}
 		${2:#:TARGET}
 	\end{$1}
+
+snippet figure
+alias   \begin{figure} \figure
+	\begin{figure}[${1}]
+		\centering
+		\includegraphics[${2:width=${3\}}]{${4}}
+		\caption{${5}}
+		\label{fig:${6}}
+	\end{figure}
+  ${0}
+  
+snippet table
+alias   \begin{table} \table
+	\begin{table}[${1}]
+		\centering
+		\caption{${2}}
+		\label{tab:${3}}
+		\begin{tabular}{${4}}
+			${5}
+		\end{tabular}
+	\end{table}
+  ${0}
+    
 snippet \bef
 alias   bef
-	\begin{figure}[${1:#:H}]
+	\begin{figure}[${1:H}]
         \centering
-        \includegraphics[${2:#:option}]{${3:#:file_path}}
-        \caption{${4:#:caption}}
-        \label{${5}}
+        \includegraphics[${2:width=${3\}}]{${4}}
+        \caption{${5:#:caption}}
+        \label{fig:${6}}
 	\end{figure}
+  ${0}
+  
 snippet \bet
 alias   bet
-	\begin{table}[${1:#:H}]
+	\begin{table}[${1:H}]
         \centering
-        \includegraphics[${2:#:option}]{${3:}}
-        \caption{${4:#:caption}}
-        \label{${5}}
+        \caption{${2}}
+        \label{tab:${3}}
+        \includegraphics[${4:width=${5\}}]{${6}}
 	\end{table}
-    
+  ${0}
+  
 snippet dots
 alias ...
     \ldots
@@ -93,3 +119,8 @@ snippet \mathrm
 alias t te tex text
     \mathrm{${1:#:text}}${0:#:next}
 
+snippet \multicols
+alias multicol multicols
+    \begin{multicols}{${1:2}}
+        ${0}
+    \end{multicols}
