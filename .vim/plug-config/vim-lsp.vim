@@ -4,6 +4,7 @@ let g:asyncomplete_auto_popup = 0
 
 augroup vimlsp
 	autocmd!
+  autocmd BufRead,BufNewFile *.nim set filetype=nim
 	autocmd FileType python,go,vim,nim,git,snippet call asyncomplete#enable_for_buffer()
 augroup END
 
