@@ -18,8 +18,6 @@ set ttyfast
 
 " " 見た目系
 set t_Co=256
-" colorscheme
-source ~/.vim/rc/color.vim
 " 行番号を表示
 set number
 " ビープ音系
@@ -156,3 +154,5 @@ elseif has("unix")
 	source ~/.vim/rc/linux.vim
 endif
 
+" colorscheme
+source ~/.vim/rc/color.vim
