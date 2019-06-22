@@ -17,8 +17,9 @@ set ttyfast
 " set mouse=a
 
 " " 見た目系
-colorscheme desert
 set t_Co=256
+" colorscheme
+source ~/.vim/rc/color.vim
 " 行番号を表示
 set number
 " ビープ音系
@@ -38,8 +39,6 @@ set wrap
 " 全角スペースの可視化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
 au BufNewFile,BufRead * match ZenkakuSpace /　/
-" syntax on
-syntax on
 
 " " Tab系
 " スマートインデント

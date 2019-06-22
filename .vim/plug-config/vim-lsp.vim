@@ -8,6 +8,7 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_signs_enabled = 1
 " Enables highlighting of diagnostics.
 let g:lsp_textprop_enabled = 1
+" color setting is in ~/.vim/rc/color.vim
 
 augroup vimlsp
   autocmd!
