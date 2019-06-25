@@ -42,3 +42,5 @@ export PATH=$ROCM_HOME/bin:$PATH
 export PATH=$HOME/.local/nim/nim-0.20.0/bin:$HOME/.nimble/bin:$PATH
 
 _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+
+export PATH="/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
