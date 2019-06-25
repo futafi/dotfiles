@@ -2,6 +2,8 @@
 set encoding=UTF-8
 set fenc=UTF-8
 scriptencoding UTF-8
+" helpの日本語化
+set helplang=ja,en
 " バックアップとスワップを作らない
 set nobackup
 set noswapfile
