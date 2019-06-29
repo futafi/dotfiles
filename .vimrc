@@ -85,6 +85,15 @@ augroup user_dict
   autocmd FileType tex setlocal dictionary+=~/.vim/user_dicts/tex.dict
 augroup END
 
+" Clear Undo
+function! s:clear_undo() abort
+  let old_undolevels = &undolevels
+  setlocal undolevels=-1
+  execute "normal! a \<BS>\<Esc>"
+  let &l:undolevels = old_undolevels
+endfunction
+command! -bar ClearUndo  call s:clear_undo()
+
 " コピペ
 if &term =~ "xterm"
   let &t_SI .= "\e[?2004h"
