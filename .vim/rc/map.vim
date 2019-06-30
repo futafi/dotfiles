@@ -15,6 +15,8 @@ noremap <SPACE>p %
 " 折り返し時の行移動
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " 括弧補完たち
 inoremap { {}<Left>
