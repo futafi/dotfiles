@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'janko/vim-test'
   Plug 'vim-jp/vimdoc-ja'
+  Plug 'mattn/emoji-vim'
 call plug#end()
 
 source ~/.vim/plug-config/neosnippet.vim
