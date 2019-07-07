@@ -43,4 +43,7 @@ export PATH=$HOME/.local/nim/nim-0.20.0/bin:$HOME/.nimble/bin:$PATH
 
 _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
 
-export PATH="/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
+texlive_year=$(latex --version | sed -r "s/\r|\n|.|TeX Live (2[0-9]{3})/\1/g")
+export PATH=/usr/local/texlive/$texlive_year/bin/x86_64-linux:$PATH
+export MANPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/info:$INFOPATH
