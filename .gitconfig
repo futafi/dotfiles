@@ -1,0 +1,15 @@
+[core]
+	editor = vim -c \"set fenc=utf-8\"
+	excludesfile = /home/daiki/.gitignore_global
+[user]
+	email = D.futagi@vivaldi.net
+	name = Futafi
+[push]
+	default = nothing
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    up = rebase
+    ci = commit
+	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
