@@ -10,7 +10,7 @@ syntax on
 " highlight LspWarningHighlight term=underline cterm=underline gui=underline ctermfg=red guifg=Cyan ctermbg=yellow guibg=green
 
 if g:colors_name == 'molokai'
-  highlight Comment            ctermfg=darkcyan
+  highlight Comment            ctermfg=cyan
   highlight MatchParen         ctermfg=Black    ctermbg=Cyan
   highlight Todo               ctermfg=233    ctermbg=3     cterm=bold,underline
 endif
