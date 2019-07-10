@@ -117,3 +117,7 @@ fi
 
 source /home/daiki/.virtualenv-auto-activate.sh
 
+texlive_year=$(latex --version | sed -r "s/\r|\n|.|TeX Live (2[0-9]{3})/\1/g")
+export PATH=/usr/local/texlive/$texlive_year/bin/x86_64-linux:$PATH
+export MANPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/info:$INFOPATH
