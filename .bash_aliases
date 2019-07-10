@@ -32,4 +32,5 @@ alias python="python3"
 alias pip="pip3"
 alias apt="sudo apt"
 alias swapclear="sudo swapoff -a && sudo swapon -a"
+eval "$(hub alias -s)"
 
