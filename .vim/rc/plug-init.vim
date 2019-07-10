@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'janko/vim-test'
   Plug 'vim-jp/vimdoc-ja'
   Plug 'junegunn/vim-emoji'
+  Plug 'glidenote/memolist.vim'
 call plug#end()
 
 source ~/.vim/plug-config/neosnippet.vim
@@ -22,4 +23,5 @@ source ~/.vim/plug-config/vimtex.vim
 source ~/.vim/plug-config/nerdcommenter.vim
 source ~/.vim/plug-config/vim-test.vim
 source ~/.vim/plug-config/vim-emoji.vim
+source ~/.vim/plug-config/memolist.vim
 
