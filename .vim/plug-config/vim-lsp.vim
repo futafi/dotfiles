@@ -10,6 +10,9 @@ let g:lsp_signs_enabled = 1
 let g:lsp_textprop_enabled = 1
 " color setting is in ~/.vim/rc/color.vim
 
+command LSD LspDocumentDiagnostics
+command LSF LspDocumentFormat
+
 augroup vimlsp
   autocmd!
   autocmd BufRead,BufNewFile *.nim set filetype=nim
