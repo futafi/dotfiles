@@ -1,3 +1,4 @@
+export PAGER=less
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -7,6 +8,7 @@ case $- in
   *i*) ;;
   *) return;;
 esac
+
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -96,28 +98,38 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if type "conda" > /dev/null 2>&1; then
-  # >>> conda initialize >>>
-  # !! Contents within this block are managed by 'conda init' !!
-  __conda_setup="$('/home/daiki/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-  if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-  else
-    if [ -f "/home/daiki/miniconda3/etc/profile.d/conda.sh" ]; then
-      . "/home/daiki/miniconda3/etc/profile.d/conda.sh"
-    else
-      export PATH="/home/daiki/miniconda3/bin:$PATH"
-    fi
-  fi
-  unset __conda_setup
-  # <<< conda initialize <<<
-fi
-
 [ -r /home/daiki/.byobu/prompt ] && . /home/daiki/.byobu/prompt   #byobu-prompt#
+source $HOME/.virtualenv-auto-activate.sh
 
-source /home/daiki/.virtualenv-auto-activate.sh
+# os settings
+if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  if type "conda" > /dev/null 2>&1; then
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/daiki/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+    else
+      if [ -f "/home/daiki/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/daiki/miniconda3/etc/profile.d/conda.sh"
+      else
+        export PATH="/home/daiki/miniconda3/bin:$PATH"
+      fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+  fi
 
-texlive_year=$(latex --version | sed -r "s/\r|\n|.|TeX Live (2[0-9]{3})/\1/g")
-export PATH=/usr/local/texlive/$texlive_year/bin/x86_64-linux:$PATH
-export MANPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/man:$MANPATH
-export INFOPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/info:$INFOPATH
+  texlive_year=$(latex --version | sed -r "s/\r|\n|.|TeX Live (2[0-9]{3})/\1/g")
+  export PATH=/usr/local/texlive/$texlive_year/bin/x86_64-linux:$PATH
+  export MANPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/man:$MANPATH
+  export INFOPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/info:$INFOPATH
+
+
+elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
+  # MINGW
+  chcp.com 65001
+  export CLOUDSDK_PYTHON=/c/Users/daiki/AppData/Local/Google/Cloud\ SDK/google-cloud-sdk/platform/bundledpython/python.exe
+else
+  echo "platform ($(uname -a)) isn't Linux or Mingw."
+fi
