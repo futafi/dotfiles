@@ -116,3 +116,5 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
 else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
+
+export HTTP_HOME=https://www.google.com/
