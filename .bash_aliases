@@ -39,6 +39,20 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   alias systemctl="sudo systemctl"
   eval "$(hub alias -s)"
 
+  fbr() {
+    local branches branch
+    branches=$(git branch -vv) &&
+    branch=$(echo "$branches" | fzf +m) &&
+    git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  }
+  fd() {
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune \
+                    -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
+  }
+  alias fdf='cd $(dirname $(fzf))'
+  alias fvim='vim $(fzf)'
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   # alias python='winpty python.exe'
   alias py='winpty py'
