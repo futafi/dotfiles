@@ -120,4 +120,5 @@ else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
 
-export HTTP_HOME=https://www.google.com/
+export HTTP_HOME=https://www.bing.com/
+export GID=$(id -g)

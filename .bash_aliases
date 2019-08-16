@@ -3,6 +3,7 @@ alias unittest='python -m unittest'
 alias dirs='dirs -l'
 alias di='dirs -v'
 alias pp='pushd'
+alias open='xdg-open'
 ## enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
