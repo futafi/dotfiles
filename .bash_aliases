@@ -23,6 +23,10 @@ alias l='ls -CF'
 ## Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+if [ -f /usr/share/fzf/completion.bash ]; then
+  source /usr/share/fzf/completion.bash
+  source /usr/share/fzf/key-bindings.bash
+fi
 
 # os alias
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -52,7 +56,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     cd "$dir"
   }
   alias fdf='cd $(dirname $(fzf))'
-  alias fvim='vim $(fzf)'
+  alias f='fzf'
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   # alias python='winpty python.exe'
   alias py='winpty py'
