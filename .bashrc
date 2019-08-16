@@ -78,6 +78,9 @@ case "$TERM" in
     ;;
 esac
 
+# bin file path
+export PATH=$HOME/bin:$PATH
+  
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
