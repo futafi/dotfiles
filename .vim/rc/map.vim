@@ -18,17 +18,18 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" 括弧補完たち
-inoremap { {}<Left>
-inoremap {} {}
-inoremap {<ENTER> {}<Left><CR><ESC><S-=><S-=><S-o>x<C-h>
-inoremap ( ()<Left>
-inoremap () ()
-inoremap (<ENTER> ()<Left><CR><ESC><S-=><S-=><S-o>x<C-h>
-inoremap ' ''<LEFT>
-inoremap '<SPACE> '<SPACE>
-inoremap " ""<LEFT>
-inoremap "<SPACE> "<SPACE>
+" " 括弧補完たち
+" ~/.vim/plug-config/lexima.vim
+" inoremap { {}<Left>
+" inoremap {} {}
+" inoremap {<ENTER> {}<Left><CR><ESC><S-=><S-=><S-o>x<C-h>
+" inoremap ( ()<Left>
+" inoremap () ()
+" inoremap (<ENTER> ()<Left><CR><ESC><S-=><S-=><S-o>x<C-h>
+" inoremap ' ''<LEFT>
+" inoremap '<SPACE> '<SPACE>
+" inoremap " ""<LEFT>
+" inoremap "<SPACE> "<SPACE>
 " レジスタ
 nnoremap ] "
 vnoremap ] "
