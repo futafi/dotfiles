@@ -108,9 +108,9 @@ function! s:weekday(...) abort
   else
     let l:weeks = l:weeks_dict[a:1]
   endif
-  execute ":normal a" . l:weeks[l:week_str]
+  return l:weeks[l:week_str]
 endfunction
-command! -bar -nargs=? Week  call s:weekday(<f-args>)
+command! -bar -nargs=? Week execute ":normal a".s:weekday(<f-args>)
 
 " コピペ
 if &term =~ "xterm"
