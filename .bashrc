@@ -79,7 +79,11 @@ case "$TERM" in
 esac
 
 # bin file path
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+
+# go path
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
   
 # Alias definitions.
 # You may want to put all your additions into a separate file like
