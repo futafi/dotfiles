@@ -1,5 +1,3 @@
-let g:lsp_async_completion = 1
-let g:lsp_diagnostics_enabled = 1
 let g:asyncomplete_enable_for_all = 0
 let g:asyncomplete_auto_popup = 0
 " Enables echo of diagnostic error for the current line to status.
@@ -15,6 +13,7 @@ command LSFormat LspDocumentFormat
 command LSHover LspHover
 command LSDef LspDefinition
 command LSTDef LspTypeDefinition
+command LSSig LspSignatureHelp
 
 augroup vimlsp
   autocmd!
@@ -30,7 +29,6 @@ augroup vimlsp
           \ 'name': 'pyls',
           \ 'cmd': {server_info->['pyls']},
           \ 'whitelist': ['python'],
-          \ 'workspace_config': {'pyls': {'plugins': {'pydocstyle': {'enabled': v:true}}}}
           \ })
     autocmd FileType python setlocal omnifunc=lsp#complete
   endif
