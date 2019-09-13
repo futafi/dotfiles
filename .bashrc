@@ -78,6 +78,13 @@ case "$TERM" in
     ;;
 esac
 
+# bin file path
+export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+
+# go path
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+  
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -117,4 +124,5 @@ else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
 
-export HTTP_HOME=https://www.google.com/
+export HTTP_HOME=https://www.bing.com/
+export GID=$(id -g)

@@ -94,6 +94,24 @@ function! s:clear_undo() abort
 endfunction
 command! -bar ClearUndo  call s:clear_undo()
 
+" 曜日
+function! s:weekday(...) abort
+  let l:week_str = strftime("%w")
+  let l:weeks_dict = {
+        \ "ja": [ "日", "月", "火", "水", "木", "金", "土" ],
+        \ "en": [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+        \ "jal": [ "日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日" ],
+        \ "enl": [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
+        \ }
+  if a:0 == 0
+    let l:weeks = l:weeks_dict["ja"]
+  else
+    let l:weeks = l:weeks_dict[a:1]
+  endif
+  return l:weeks[l:week_str]
+endfunction
+command! -bar -nargs=? Week execute ":normal a".s:weekday(<f-args>)
+
 " コピペ
 if &term =~ "xterm"
   let &t_SI .= "\e[?2004h"

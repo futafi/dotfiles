@@ -1,0 +1,49 @@
+snippet     forl
+options     head
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) {
+        ${0:#:TARGET}
+    }
+
+snippet     forle
+options     head
+alias       forleq
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 <= ${4}; $2++) {
+        ${0:#:TARGET}
+    }
+    
+snippet     forg
+options     head
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 > ${4}; $2--) {
+        ${0:#:TARGET}
+    }
+
+snippet     forge
+options     head
+alias       forgeq
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 >= ${4}; $2--) {
+        ${0:#:TARGET}
+    }
+    
+snippet     fore
+options     head
+alias       foreq
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 == ${4}; $2++) {
+        ${0:#:TARGET}
+    }
+
+snippet     forne
+options     head
+alias       forneq
+abbr        for () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 != ${4}; $2++) {
+        ${0:#:TARGET}
+    }
+
+snippet     return
+alias       ret
+    return 0;
