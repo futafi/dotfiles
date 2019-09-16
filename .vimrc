@@ -112,6 +112,7 @@ function! s:weekday(...) abort
   return l:weeks[l:week_str]
 endfunction
 command! -bar -nargs=? Week execute ":normal a".s:weekday(<f-args>)
+command! -bar -nargs=? TDay execute ":normal a".strftime('%d')."日（".s:weekday(<f-args>)."）"
 
 " コピペ
 if &term =~ "xterm"
