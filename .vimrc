@@ -22,6 +22,7 @@ set ttyfast
 set t_Co=256
 " 行番号を表示
 set number
+set relativenumber
 " ビープ音系
 set vb t_vb=
 set novisualbell
