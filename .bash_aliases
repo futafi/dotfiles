@@ -43,6 +43,15 @@ if [ -f /usr/share/fzf/completion.bash ]; then
   source /usr/share/fzf/key-bindings.bash
 fi
 
+# pushd popd and cd aliases
+alias pd="pushd"
+alias pu="pushd"
+alias po="popd"
+alias di="dirs"
+alias ..="cd ../."
+alias ...="cd ../../."
+alias ....="cd ../../../."
+
 # os alias
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 
