@@ -31,8 +31,8 @@ nnoremap gk k
 " inoremap " ""<LEFT>
 " inoremap "<SPACE> "<SPACE>
 " レジスタ
-nnoremap ] "
-vnoremap ] "
+nnoremap <SPACE> "
+vnoremap <SPACE> "
 
 " 行末までヤンク
 nnoremap Y y$
@@ -43,7 +43,7 @@ nnoremap Y y$
 augroup F5Run
   autocmd!
   autocmd FileType python          nnoremap <F5> :w<CR>:!clear;python %:p<CR>
-  autocmd BufRead,BufNewFile *.nim nnoremap <F5> :w<CR>:!clear;nim c -r %:p<CR>
+  autocmd FileType nim nnoremap <F5> :w<CR>:!clear;nim c -r %:p<CR>
   " autocmd BufRead,BufNewFile *.nim nnoremap <F5> :w<CR>:!clear;nim c -r -d:release %:p<CR>
   autocmd FileType c               nnoremap <F5> :w<CR>:!clear;gcc -lm -o %:r %:p;./%:r<CR>
   autocmd FileType cpp             nnoremap <F5> :w<CR>:!clear;g++ -o %:r %:p;./%:r<CR>
@@ -56,7 +56,7 @@ augroup END
 augroup F6Compile
   autocmd!
   " autocmd BufRead,BufNewFile *.nim nnoremap <F6> :w<CR>:!clear;nim c %:p<CR>
-  autocmd BufRead,BufNewFile *.nim nnoremap <F6> :w<CR>:!clear;nim c -d:release %:p<CR>
+  autocmd FileType *.nim nnoremap <F6> :w<CR>:!clear;nim c -d:release %:p<CR>
   autocmd FileType c               nnoremap <F6> :w<CR>:!clear;gcc -lm -o %:r %:p<CR>
   autocmd FileType cpp             nnoremap <F6> :w<CR>:!clear;g++ -o %:r %:p<CR>
   autocmd FileType go              nnoremap <F6> :w<CR>:!clear;go build<CR>
