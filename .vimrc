@@ -39,7 +39,10 @@ set laststatus=2
 set wrap
 " 全角スペースの可視化
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=#666666
-au BufNewFile,BufRead * match ZenkakuSpace /　/
+augroup Iroiro
+  autocmd!
+  autocmd BufNewFile,BufRead * match ZenkakuSpace /　/
+augroup END
 
 " " Tab系
 " スマートインデント
@@ -47,7 +50,7 @@ set smartindent
 " Tab文字を半角スペースにする
 set expandtab
 " Tab文字の表示幅（スペースいくつ分）
-set tabstop=2
+set tabstop=6
 set shiftwidth=2
 
 " " 検索系
@@ -79,6 +82,17 @@ set wildmode=list:longest,longest,longest,full
 nnoremap o ox<C-h>
 nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
+
+" filetype
+augroup FileTypeSettings
+  autocmd!
+  autocmd BufRead,BufNewFile *.nim set filetype=nim
+  autocmd BufRead,BufNewFile *.h set filetype=c
+  autocmd Filetype python set shiftwidth=4
+  autocmd Filetype c set noexpandtab
+  autocmd Filetype c set tabstop=6
+  autocmd Filetype go set noexpandtab
+augroup END
 
 " ユーザー辞書
 augroup user_dict
@@ -133,8 +147,11 @@ command Format normal gggqG
 augroup format
   autocmd!
   autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
-  autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ Google,\ IndentWidth:\ 4,\ Standard:\ C++11}\"\ -
+  " autocmd FileType python setlocal formatprg=autopep8\ -a\ -a\ -
+  " autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ Google,\ IndentWidth:\ 4,\ Standard:\ C++11}\"\ -
+  autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ LLVM,\ IndentWidth:\ 8,\ UseTab:\ Always,\ BreakBeforeBraces:\ Linux,\ AllowShortIfStatementsOnASingleLine:\ false,\ IndentCaseLabels:\ false,\ Standard:\ C++11}\"\ -
   autocmd FileType cpp    setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ Google,\ IndentWidth:\ 4,\ Standard:\ C++11}\"\ -
+  autocmd FileType go     setlocal formatprg=gofmt
 augroup END
 
 " " 補完のお勉強
