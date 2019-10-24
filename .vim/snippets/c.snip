@@ -47,3 +47,8 @@ abbr        for () {}
 snippet     return
 alias       ret
     return 0;
+
+snippet     incc
+options     head
+alias       #incc, #includeu, incu, #incu
+    #include "${1}.h"
