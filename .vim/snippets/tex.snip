@@ -133,8 +133,12 @@ alias gather gat
 
 snippet \cases
 alias cases
-    \begin{gather}
+    \begin{align}
       \begin{cases}
         ${0}
       \end{cases}
-    \end{gather}
+    \end{align}
+
+snippet \frac
+alias   frac \frac{
+	\frac{${1:1}}{${2}}${0}
