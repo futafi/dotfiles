@@ -133,8 +133,30 @@ alias gather gat
 
 snippet \cases
 alias cases
-    \begin{gather}
+    \begin{align}
       \begin{cases}
         ${0}
       \end{cases}
-    \end{gather}
+    \end{align}
+
+snippet \frac
+alias   frac \frac{
+	\frac{${1:1}}{${2}}${0}
+      
+snippet minipages3
+      \begin{table}[H]
+        \begin{tabular}{ccc}
+          \begin{minipage}{0.33\hsize}
+              ${1}
+          \end{minipage}
+          
+          \begin{minipage}{0.33\hsize}
+              ${2}
+          \end{minipage}
+          
+          \begin{minipage}{0.33\hsize}
+              ${3}
+          \end{minipage}
+        \end{tabular}
+      \end{table}
+      ${0}
