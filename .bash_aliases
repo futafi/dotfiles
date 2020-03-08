@@ -1,4 +1,5 @@
 # both alias
+alias ctags="ctags --tag-relative --recurse --sort=yes  --append=no"
 alias v="vim"
 alias vi="vim"
 alias please='sudo $(fc -ln -1)'
