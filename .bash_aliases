@@ -59,7 +59,6 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   alias sc="screen -xR"
   alias py="python3"
   alias python="python3"
-  alias pip="pip3"
   alias apt="sudo apt"
   alias swapclear="sudo swapoff -a && sudo swapon -a"
   alias exp="caja ."
