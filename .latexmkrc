@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+@default_files = ('parents.tex');
 $latex        = 'uplatex -synctex=1';
 $latex_silent = 'uplatex -synctex=1 -interaction=batchmode';
 $bibtex       = 'upbibtex';
