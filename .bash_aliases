@@ -53,6 +53,9 @@ alias ..="cd ../."
 alias ...="cd ../../."
 alias ....="cd ../../../."
 
+# fzf
+alias f='fzf'
+
 # os alias
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 
@@ -67,7 +70,8 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   alias docker-compose="sudo docker-compose"
   alias systemctl="sudo systemctl"
   eval "$(hub alias -s)"
-
+  
+  # fzf
   fbr() {
     local branches branch
     branches=$(git branch -vv) &&
@@ -85,7 +89,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && pushd "$dir"
   }
   alias fdf='cd $(dirname $(fzf))'
-  alias f='fzf'
+
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   # alias python='winpty python.exe'
   alias py='winpty py'
@@ -93,6 +97,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   alias exp='explorer .'
   alias dlatexmk="docker run --rm -v /$PWD:/workdir latex latexmk"
   alias dlatexmkit="docker run --rm -it -v /$PWD:/workdir latex latexmk"
+  eval "$(hub alias -s bash)"
+  alias fzf="winpty fzf"
 else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
