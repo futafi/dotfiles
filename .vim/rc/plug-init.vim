@@ -24,5 +24,3 @@ source ~/.vim/plug-config/vim-test.vim
 source ~/.vim/plug-config/vim-emoji.vim
 source ~/.vim/plug-config/memolist.vim
 source ~/.vim/plug-config/lexima.vim
-
-
