@@ -99,6 +99,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   alias dlatexmkit="docker run --rm -it -v /$PWD:/workdir latex latexmk"
   eval "$(hub alias -s bash)"
   alias fzf="winpty fzf"
+  alias gnuplot="winpty gnuplot"
 else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
