@@ -6,11 +6,8 @@ nnoremap <SPACE>j :bn<CR>
 
 " 行末、行頭、括弧移動
 noremap <C-l> $
-noremap <SPACE>l $
 noremap <C-h> ^
-noremap <SPACE>h ^
 noremap <C-p> %
-noremap <SPACE>p %
 
 " 折り返し時の行移動
 nnoremap j gj
@@ -30,9 +27,12 @@ nnoremap gk k
 " inoremap '<SPACE> '<SPACE>
 " inoremap " ""<LEFT>
 " inoremap "<SPACE> "<SPACE>
+
 " レジスタ
-nnoremap <SPACE> "
-vnoremap <SPACE> "
+nnoremap <SPACE>} "
+vnoremap <SPACE>} "
+" nnoremap <SPACE> "
+" vnoremap <SPACE> "
 
 " 行末までヤンク
 nnoremap Y y$

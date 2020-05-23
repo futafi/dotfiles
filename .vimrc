@@ -47,11 +47,25 @@ augroup END
 " " Tab系
 " スマートインデント
 set smartindent
-" Tab文字を半角スペースにする
-set expandtab
-" Tab文字の表示幅（スペースいくつ分）
 set tabstop=6
 set shiftwidth=2
+" filetype
+augroup FileTypeSettings
+  autocmd!
+  " Tab文字を半角スペースにする
+  autocmd BufRead,BufNewFile set expandtab
+  " Tab文字の表示幅（スペースいくつ分）
+  autocmd BufRead,BufNewFile set tabstop=6
+  autocmd BufRead,BufNewFile set shiftwidth=2
+  autocmd BufRead,BufNewFile *.nim set filetype=nim
+  autocmd BufRead,BufNewFile *.h set filetype=c
+  autocmd Filetype python set shiftwidth=4
+  autocmd Filetype c set noexpandtab
+  autocmd Filetype c set tabstop=6
+  autocmd Filetype c set shiftwidth=6
+  autocmd Filetype go set noexpandtab
+  autocmd Filetype markdown set tabstop=2
+augroup END
 
 " " 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
@@ -83,17 +97,6 @@ nnoremap o ox<C-h>
 nnoremap O OX<C-h>
 inoremap <CR> <CR>X<C-h>
 
-" filetype
-augroup FileTypeSettings
-  autocmd!
-  autocmd BufRead,BufNewFile *.nim set filetype=nim
-  autocmd BufRead,BufNewFile *.h set filetype=c
-  autocmd Filetype python set shiftwidth=4
-  autocmd Filetype c set noexpandtab
-  autocmd Filetype c set tabstop=6
-  autocmd Filetype go set noexpandtab
-augroup END
-
 " ユーザー辞書
 augroup user_dict
   autocmd!
@@ -111,7 +114,12 @@ command! -bar ClearUndo  call s:clear_undo()
 
 " 曜日
 function! s:weekday(...) abort
-  let l:week_str = strftime("%w")
+  if a:0 == 2
+    let l:time = localtime() -  str2nr(a:2) * 60 * 60 * 24
+  else
+    let l:time = localtime()
+  endif
+  let l:week_str = strftime("%w", l:time)
   let l:weeks_dict = {
         \ "ja": [ "日", "月", "火", "水", "木", "金", "土" ],
         \ "en": [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
@@ -125,8 +133,19 @@ function! s:weekday(...) abort
   endif
   return l:weeks[l:week_str]
 endfunction
-command! -bar -nargs=? Week execute ":normal a".s:weekday(<f-args>)
-command! -bar -nargs=? TDay execute ":normal a".strftime('%d')."日（".s:weekday(<f-args>)."）"
+
+" Tday Command
+function! s:tday(...) abort
+  if a:0 == 0
+    let l:diff = 0
+  else
+    let l:diff = str2nr(a:1) * 60 * 60 * 24
+  endif
+  let l:weekday = s:weekday("ja", l:diff)
+  return strftime('%d', localtime() + l:diff)."日（".l:weekday."）"
+endfunction
+command! -bar -nargs=* Week execute ":normal a".s:weekday(<f-args>)
+command! -bar -nargs=* TDay execute ":normal a"s:tday(<f-args>)
 
 " コピペ
 if &term =~ "xterm"
@@ -152,6 +171,8 @@ augroup format
   autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ LLVM,\ IndentWidth:\ 8,\ UseTab:\ Always,\ BreakBeforeBraces:\ Linux,\ AllowShortIfStatementsOnASingleLine:\ false,\ IndentCaseLabels:\ false,\ Standard:\ C++11}\"\ -
   autocmd FileType cpp    setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ Google,\ IndentWidth:\ 4,\ Standard:\ C++11}\"\ -
   autocmd FileType go     setlocal formatprg=gofmt
+  autocmd FileType json   setlocal formatprg=python\ -m\ json.tool\ -
+  autocmd FileType javascript setlocal formatprg=js-beautify\ --indent-size=2\ --stdin\ -
 augroup END
 
 " " 補完のお勉強

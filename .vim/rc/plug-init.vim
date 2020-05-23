@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-emoji'
   Plug 'glidenote/memolist.vim'
   Plug 'cohama/lexima.vim'
+  Plug 'mattn/vim-lsp-settings'
 call plug#end()
 
 source ~/.vim/plug-config/neosnippet.vim
@@ -23,5 +24,3 @@ source ~/.vim/plug-config/vim-test.vim
 source ~/.vim/plug-config/vim-emoji.vim
 source ~/.vim/plug-config/memolist.vim
 source ~/.vim/plug-config/lexima.vim
-
-
