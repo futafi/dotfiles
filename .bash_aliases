@@ -1,4 +1,6 @@
 # both alias
+alias manja="LANG=ja man"
+alias manen="LANG=C man"
 alias ctags="ctags --tag-relative --recurse --sort=yes  --append=no"
 alias v="vim"
 alias vi="vim"
@@ -17,7 +19,6 @@ function wget_gdrive ()
   curl -LOJb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${FILE_ID}"
 }
 alias unittest='python -m unittest'
-alias dirs='dirs -v'
 alias open='xdg-open'
 ## enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -46,9 +47,9 @@ fi
 
 # pushd popd and cd aliases
 alias pd="pushd"
-alias pu="pushd"
 alias po="popd"
-alias di="dirs"
+alias di="dirs -v"
+alias dirs='dirs'
 alias ..="cd ../."
 alias ...="cd ../../."
 alias ....="cd ../../../."
