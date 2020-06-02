@@ -12,11 +12,11 @@ alias templatelong
 
 snippet \tabref
 alias tabref
-    \tabref{${1}}
+    \tabref{${1}}${0}
 
 snippet \figref
 alias figref
-    \figref{${1}}
+    \figref{${1}}${0}
 
 snippet refr
 alias \refr rer rar
@@ -160,3 +160,7 @@ snippet minipages3
         \end{tabular}
       \end{table}
       ${0}
+
+snippet \mathrm
+alias mathrm \rm rm
+    \mathrm{${1}}${0}
