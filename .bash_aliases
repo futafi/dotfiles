@@ -18,6 +18,12 @@ function wget_gdrive ()
   local CONFIRM="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"  
   curl -LOJb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CONFIRM}&id=${FILE_ID}"
 }
+function pdfcropm ()
+{
+  local tempfile=$(mktemp)
+  pdfcrop "$1" "$tempfile"
+  mv "$tempfile" "$1"
+}
 alias unittest='python -m unittest'
 alias open='xdg-open'
 ## enable color support of ls and also add handy aliases
