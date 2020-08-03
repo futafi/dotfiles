@@ -178,3 +178,9 @@ alias   subsubsec \subsubsec
 snippet \mathrm
 alias mathrm \rm rm
     \mathrm{${1}}${0}
+    
+snippet minipage
+alias   \begin{minipage} \minipage
+	\begin{minipage}[${1:t}]{${2:0.5\\\hsize}}
+		${3:TARGET}
+	\end{minipage}
