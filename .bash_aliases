@@ -23,6 +23,7 @@ function pdfcropm ()
   local tempfile=$(mktemp)
   pdfcrop "$1" "$tempfile"
   mv "$tempfile" "$1"
+  echo cropped $1
 }
 alias unittest='python -m unittest'
 alias open='xdg-open'
