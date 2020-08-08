@@ -184,9 +184,9 @@ alias   aling
 	\begin{align}
 		${1:TARGET}
 	\end{align}
-      
+    
 snippet minipage
 alias   \begin{minipage} \minipage
-	\begin{minipage}{${1}}
-		${2:TARGET}
+	\begin{minipage}[${1:t}]{${2:0.5\\\hsize}}
+		${3:TARGET}
 	\end{minipage}
