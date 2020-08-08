@@ -106,6 +106,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   eval "$(hub alias -s bash)"
   alias fzf="winpty fzf"
   alias gnuplot="winpty gnuplot"
+  alias clang="clang --target=x86_64--target=x86_64-w64-mingw"
 else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
