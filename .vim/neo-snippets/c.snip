@@ -44,6 +44,12 @@ abbr        for () {}
         ${0:#:TARGET}
     }
 
+snippet     foro
+options     head
+abbr        foro () {}
+    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) 
+        ${0:#:TARGET}
+
 snippet     return
 alias       ret
     return 0;
@@ -71,3 +77,21 @@ options     head
 		${0:TARGET}
 		return 0;
 	}
+      
+snippet (scanf
+abbr    scanf("...", ...);
+    (scanf("${1}", ${2})
+
+snippet     whiles
+options     head
+abbr        while (scanf() && ) {}
+    while (scanf("${1}", ${2}) && ${3:#:condition}) {
+        ${0:TARGET}
+    }
+
+snippet     comp
+options     head
+abbr        qsort function. void func() {}
+    int ${1:comp}(const void *${2:a}, const void *${3:b}) {
+        ${0:return *(int *)a - *(int *)b;}
+    }
