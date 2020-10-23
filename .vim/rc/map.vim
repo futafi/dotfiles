@@ -61,5 +61,6 @@ augroup F6Compile
   autocmd FileType cpp             nnoremap <F6> :w<CR>:!clear;g++ -o %:r %:p<CR>
   autocmd FileType go              nnoremap <F6> :w<CR>:!clear;go build<CR>
   autocmd FileType java            nnoremap <F6> :w<CR>:!clear;javac %<CR>
+  autocmd FileType tex            nnoremap <F6> :w<CR>:!clear;latexmk %<CR>
 augroup END
 
