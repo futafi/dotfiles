@@ -6,6 +6,8 @@ call plug#begin('~/.vim/plugged')
   " Plug 'Shougo/neosnippet-snippets'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
+  Plug 'thomasfaingnaert/vim-lsp-snippets'
+  Plug 'thomasfaingnaert/vim-lsp-ultisnips'
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
