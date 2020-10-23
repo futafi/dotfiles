@@ -1,5 +1,6 @@
 " let g:asyncomplete_enable_for_all = 0
 " let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_auto_completeopt = 0
 " Enables echo of diagnostic error for the current line to status.
 let g:lsp_diagnostics_echo_cursor = 1
 " Enables signs for diagnostics.

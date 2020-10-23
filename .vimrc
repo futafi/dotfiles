@@ -86,8 +86,9 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set infercase
 " 補完時の設定
 " set completeopt=menuone
-set completeopt=menuone,longest
-" set completeopt=menuone,preview  
+" set completeopt=menuone,longest
+set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,preview,noinsert,noselect
 " ファイル名タブ補完
 set wildmenu
 " set wildmode=list:longest,longest,full
