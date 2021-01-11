@@ -2,8 +2,12 @@
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
   Plug 'lervag/vimtex'
-  Plug 'Shougo/neosnippet.vim'
-  Plug 'Shougo/neosnippet-snippets'
+  " Plug 'Shougo/neosnippet.vim'
+  " Plug 'Shougo/neosnippet-snippets'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'thomasfaingnaert/vim-lsp-snippets'
+  Plug 'thomasfaingnaert/vim-lsp-ultisnips'
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
@@ -17,7 +21,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'iberianpig/tig-explorer.vim'
 call plug#end()
 
-source ~/.vim/plug-config/neosnippet.vim
+" source ~/.vim/plug-config/neosnippet.vim
+source ~/.vim/plug-config/ultisnips.vim
 source ~/.vim/plug-config/vim-lsp.vim
 source ~/.vim/plug-config/vimtex.vim
 source ~/.vim/plug-config/nerdcommenter.vim
