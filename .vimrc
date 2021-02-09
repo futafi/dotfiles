@@ -169,7 +169,7 @@ augroup format
   autocmd FileType python setlocal formatprg=autopep8\ --aggressive\ --aggressive\ -
   " autocmd FileType python setlocal formatprg=autopep8\ -a\ -a\ -
   " autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ Google,\ IndentWidth:\ 4,\ Standard:\ C++11}\"\ -
-  autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ LLVM,\ IndentWidth:\ 8,\ UseTab:\ Always,\ BreakBeforeBraces:\ Linux,\ AllowShortIfStatementsOnASingleLine:\ false,\ IndentCaseLabels:\ false,\ Standard:\ C++11}\"\ -
+  autocmd FileType c      setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ LLVM,\ IndentWidth:\ 8,\ UseTab:\ Always,\ BreakBeforeBraces:\ Linux,\ AllowShortIfStatementsOnASingleLine:\ false,\ IndentCaseLabels:\ false,\ ColumnLimit:\ 0,\ AlignConsecutiveMacros:\ true,\ AlignEscapedNewlines:\ Left}\"\ -
   autocmd FileType cpp    setlocal formatprg=clang-format\ -style=\"{BasedOnStyle:\ Google,\ IndentWidth:\ 4,\ Standard:\ C++11}\"\ -
   autocmd FileType go     setlocal formatprg=gofmt
   autocmd FileType json   setlocal formatprg=python\ -m\ json.tool\ -
