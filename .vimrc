@@ -65,6 +65,7 @@ augroup FileTypeSettings
   autocmd Filetype c set shiftwidth=6
   autocmd Filetype go set noexpandtab
   autocmd Filetype markdown set tabstop=2
+  autocmd Filetype systemverilog set expandtab
 augroup END
 
 " " 検索系
