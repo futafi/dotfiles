@@ -19,6 +19,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'cohama/lexima.vim'
   Plug 'mattn/vim-lsp-settings'
   Plug 'iberianpig/tig-explorer.vim'
+  Plug 'preservim/tagbar', {'do':'go get -u github.com/jstemmer/gotags'}
+  Plug 'jszakmeister/markdown2ctags'
 call plug#end()
 
 " source ~/.vim/plug-config/neosnippet.vim
@@ -31,3 +33,4 @@ source ~/.vim/plug-config/vim-emoji.vim
 source ~/.vim/plug-config/memolist.vim
 source ~/.vim/plug-config/lexima.vim
 source ~/.vim/plug-config/tig-explorer.vim
+source ~/.vim/plug-config/tagbar.vim
