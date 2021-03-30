@@ -28,18 +28,20 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export ROCM_PATH=/opt/rocm
-export HCC_HOME=/opt/rocm/hcc
-export HIP_PATH=/opt/rocm/hip
-export PATH=$HCC_HOME/bin:$HIP_PATH/bin:$PATH
-
-export HCC_AMDGPU_TARGET=gfx803
-export __HIP_PLATFORM_HCC__
-
-export ROCM_HOME=/opt/rocm
-export CUPY_INSTALL_USE_HIP=1
-export PATH=$ROCM_HOME/bin:$PATH
 export PATH=$HOME/.local/nim/nim-0.20.0/bin:$HOME/.nimble/bin:$PATH
+if [ -d "/opt/rocm" ] ; then
+	export ROCM_PATH=/opt/rocm
+	export HCC_HOME=/opt/rocm/hcc
+	export HIP_PATH=/opt/rocm/hip
+	export PATH=$HCC_HOME/bin:$HIP_PATH/bin:$PATH
+
+	export HCC_AMDGPU_TARGET=gfx803
+	export __HIP_PLATFORM_HCC__
+
+	export ROCM_HOME=/opt/rocm
+	export CUPY_INSTALL_USE_HIP=1
+	export PATH=$ROCM_HOME/bin:$PATH
+fi
 
 _byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
 
