@@ -28,7 +28,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export PATH=$HOME/.local/nim/nim-0.20.0/bin:$HOME/.nimble/bin:$PATH
 if [ -d "/opt/rocm" ] ; then
 	export ROCM_PATH=/opt/rocm
 	export HCC_HOME=/opt/rocm/hcc
