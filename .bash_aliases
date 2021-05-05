@@ -1,7 +1,7 @@
 # both alias
 alias manja="LANG=ja man"
 alias manen="LANG=C man"
-alias ctags="ctags --tag-relative --recurse --sort=yes  --append=no"
+alias ctagsr="ctags --tag-relative --recurse --sort=yes  --append=no"
 alias v="vim"
 alias vi="vim"
 alias please='sudo $(fc -ln -1)'
