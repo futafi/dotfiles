@@ -20,6 +20,7 @@ set ttyfast
 
 " " 見た目系
 set t_Co=256
+set synmaxcol=288
 " 行番号を表示
 set number
 set relativenumber
