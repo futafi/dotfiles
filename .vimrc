@@ -27,6 +27,7 @@ set relativenumber
 " ビープ音系
 set vb t_vb=
 set novisualbell
+set belloff=all
 " scroll
 set scrolloff=10
 " 対応する括弧を表示

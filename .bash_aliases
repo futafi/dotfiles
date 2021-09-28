@@ -1,4 +1,5 @@
 # both alias
+alias gshell="gcloud alpha interactive"
 alias manja="LANG=ja man"
 alias manen="LANG=C man"
 alias ctagsr="ctags --tag-relative --recurse --sort=yes  --append=no"
