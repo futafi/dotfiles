@@ -72,7 +72,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
   xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
   *)
     ;;
@@ -94,6 +94,11 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+# local bashrc
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -106,7 +111,7 @@ if ! shopt -oq posix; then
 fi
 
 [ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#
-source $HOME/.virtualenv-auto-activate.sh
+[ -r /home/daiki/.virtualenv-auto-activate.sh ] && source $HOME/.virtualenv-auto-activate.sh
 
 # os settings
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -126,5 +131,21 @@ else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi
 
+# WSL
+if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
+	WSLHOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+	alias gocopy=/mnt/c/Users/daiki/go/bin/gocopy.exe
+	alias gopaste=/mnt/c/Users/daiki/go/bin/gopaste.exe
+	alias exp="explorer.exe ."
+	# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+	#dbus_status=$(service dbus status)
+	#if [[ $dbus_status = *"is not running"* ]]; then
+	#  sudo service dbus --full-restart
+	#fi
+	#[ -z "$PS1" ] && return
+	PS1="\[\e[1;33m\]($WSL_DISTRO_NAME) \[\e[0m\]$PS1"
+fi
+
 export HTTP_HOME=https://www.bing.com/
 export GID=$(id -g)
+eval "$(pyenv init -)"

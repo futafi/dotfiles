@@ -227,3 +227,4 @@ endif
 
 " colorscheme
 source ~/.vim/rc/color.vim
+set visualbell t_vb=

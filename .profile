@@ -28,6 +28,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "usr/local/bin" ] ; then
+    PATH="/usr/local/bin:$PATH"
+fi
+
 if [ -d "/opt/rocm" ] ; then
 	export ROCM_PATH=/opt/rocm
 	export HCC_HOME=/opt/rocm/hcc
@@ -42,4 +46,14 @@ if [ -d "/opt/rocm" ] ; then
 	export PATH=$ROCM_HOME/bin:$PATH
 fi
 
+export DISPLAY=:0
 
+if ! pgrep wsld >> /dev/null 2>&1 ; then
+    nohup sudo /home/daiki/bin/wsld > /dev/null < /dev/null 2>&1 &
+    disown
+
+    # sleep until $DISPLAY is up
+    while ! xset q > /dev/null 2>&1 ; do
+        sleep 0.3
+    done
+fi
