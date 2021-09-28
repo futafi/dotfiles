@@ -28,18 +28,32 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export ROCM_PATH=/opt/rocm
-export HCC_HOME=/opt/rocm/hcc
-export HIP_PATH=/opt/rocm/hip
-export PATH=$HCC_HOME/bin:$HIP_PATH/bin:$PATH
+if [ -d "usr/local/bin" ] ; then
+    PATH="/usr/local/bin:$PATH"
+fi
 
-export HCC_AMDGPU_TARGET=gfx803
-export __HIP_PLATFORM_HCC__
+if [ -d "/opt/rocm" ] ; then
+	export ROCM_PATH=/opt/rocm
+	export HCC_HOME=/opt/rocm/hcc
+	export HIP_PATH=/opt/rocm/hip
+	export PATH=$HCC_HOME/bin:$HIP_PATH/bin:$PATH
 
-export ROCM_HOME=/opt/rocm
-export CUPY_INSTALL_USE_HIP=1
-export PATH=$ROCM_HOME/bin:$PATH
-export PATH=$HOME/.local/nim/nim-0.20.0/bin:$HOME/.nimble/bin:$PATH
+	export HCC_AMDGPU_TARGET=gfx803
+	export __HIP_PLATFORM_HCC__
 
-_byobu_sourced=1 . /usr/bin/byobu-launch 2>/dev/null || true
+	export ROCM_HOME=/opt/rocm
+	export CUPY_INSTALL_USE_HIP=1
+	export PATH=$ROCM_HOME/bin:$PATH
+fi
 
+export DISPLAY=:0
+
+if ! pgrep wsld >> /dev/null 2>&1 ; then
+    nohup sudo /home/daiki/bin/wsld > /dev/null < /dev/null 2>&1 &
+    disown
+
+    # sleep until $DISPLAY is up
+    while ! xset q > /dev/null 2>&1 ; do
+        sleep 0.3
+    done
+fi

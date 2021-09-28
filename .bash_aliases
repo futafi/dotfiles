@@ -1,7 +1,8 @@
 # both alias
+alias gshell="gcloud alpha interactive"
 alias manja="LANG=ja man"
 alias manen="LANG=C man"
-alias ctags="ctags --tag-relative --recurse --sort=yes  --append=no"
+alias ctagsr="ctags --tag-relative --recurse --sort=yes  --append=no"
 alias v="vim"
 alias vi="vim"
 alias please='sudo $(fc -ln -1)'
@@ -69,7 +70,6 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 
   alias sc="screen -xR"
   alias py="python3"
-  alias python="python3"
   alias apt="sudo apt"
   alias swapclear="sudo swapoff -a && sudo swapon -a"
   alias exp="caja ."
@@ -111,6 +111,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   eval "$(hub alias -s bash)"
   alias fzf="winpty fzf"
   alias gnuplot="winpty gnuplot"
+  alias clang="clang --target=x86_64--target=x86_64-w64-mingw"
 else
   echo "platform ($(uname -a)) isn't Linux or Mingw."
 fi

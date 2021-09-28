@@ -20,12 +20,14 @@ set ttyfast
 
 " " 見た目系
 set t_Co=256
+set synmaxcol=288
 " 行番号を表示
 set number
 set relativenumber
 " ビープ音系
 set vb t_vb=
 set novisualbell
+set belloff=all
 " scroll
 set scrolloff=10
 " 対応する括弧を表示
@@ -65,6 +67,7 @@ augroup FileTypeSettings
   autocmd Filetype c set shiftwidth=6
   autocmd Filetype go set noexpandtab
   autocmd Filetype markdown set tabstop=2
+  autocmd Filetype systemverilog set expandtab
 augroup END
 
 " " 検索系
@@ -226,3 +229,4 @@ endif
 
 " colorscheme
 source ~/.vim/rc/color.vim
+set visualbell t_vb=

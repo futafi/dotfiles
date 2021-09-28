@@ -33,6 +33,10 @@ nnoremap <SPACE>} "
 vnoremap <SPACE>} "
 " nnoremap <SPACE> "
 " vnoremap <SPACE> "
+nnoremap <SPACE><SPACE> "
+vnoremap <SPACE><SPACE> "
+nnoremap <SPACE><SPACE><SPACE> "+
+vnoremap <SPACE><SPACE><SPACE> "+
 
 " 行末までヤンク
 nnoremap Y y$
