@@ -94,6 +94,11 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+# local bashrc
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -106,7 +111,7 @@ if ! shopt -oq posix; then
 fi
 
 [ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#
-source $HOME/.virtualenv-auto-activate.sh
+[ -r /home/daiki/.virtualenv-auto-activate.sh ] && source $HOME/.virtualenv-auto-activate.sh
 
 # os settings
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -133,20 +138,22 @@ if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
 	alias gopaste=$HOME/bin/gopaste.exe
 	alias exp="explorer.exe ."
 	# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+	#dbus_status=$(service dbus status)
+	#if [[ $dbus_status = *"is not running"* ]]; then
+	#  sudo service dbus --full-restart
+	#fi
+	#[ -z "$PS1" ] && return
+	PS1="\[\e[1;33m\]($WSL_DISTRO_NAME) \[\e[0m\]$PS1"
 fi
 
 export HTTP_HOME=https://www.bing.com/
 export GID=$(id -g)
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-export PATH="$HOME/.poetry/bin:$PATH"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/daiki/bin/google-cloud-sdk/path.bash.inc' ]; then . '/home/daiki/bin/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/daiki/bin/google-cloud-sdk/completion.bash.inc' ]; then . '/home/daiki/bin/google-cloud-sdk/completion.bash.inc'; fi
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
