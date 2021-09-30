@@ -46,7 +46,7 @@ if [ -d "/opt/rocm" ] ; then
 	export PATH=$ROCM_HOME/bin:$PATH
 fi
 
-if type "wsld" > /dev/null 2?&1; then
+if type "wsld" > /dev/null 2>&1; then
   export DISPLAY=:0
   if ! pgrep wsld >> /dev/null 2>&1 ; then
 	nohup sudo $HOME/bin/wsld > /dev/null < /dev/null 2>&1 &
