@@ -111,7 +111,7 @@ if ! shopt -oq posix; then
 fi
 
 [ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#
-[ -r /home/daiki/.virtualenv-auto-activate.sh ] && source $HOME/.virtualenv-auto-activate.sh
+[ -r $HOME/.virtualenv-auto-activate.sh ] && source $HOME/.virtualenv-auto-activate.sh
 
 # os settings
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
@@ -149,10 +149,10 @@ fi
 export HTTP_HOME=https://www.bing.com/
 export GID=$(id -g)
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/daiki/bin/google-cloud-sdk/path.bash.inc' ]; then . '/home/daiki/bin/google-cloud-sdk/path.bash.inc'; fi
+if [ -f $HOME'/bin/google-cloud-sdk/path.bash.inc' ]; then . $HOME'/bin/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/daiki/bin/google-cloud-sdk/completion.bash.inc' ]; then . '/home/daiki/bin/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f $HOME'/bin/google-cloud-sdk/completion.bash.inc' ]; then . $HOME'/bin/google-cloud-sdk/completion.bash.inc'; fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

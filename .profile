@@ -49,7 +49,7 @@ fi
 if type "wsld" > /dev/null 2?&1; then
   export DISPLAY=:0
   if ! pgrep wsld >> /dev/null 2>&1 ; then
-	nohup sudo /home/daiki/bin/wsld > /dev/null < /dev/null 2>&1 &
+	nohup sudo $HOME/bin/wsld > /dev/null < /dev/null 2>&1 &
 	disown
 
 	# sleep until $DISPLAY is up
