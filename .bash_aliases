@@ -95,6 +95,10 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     local dir;
     dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && pushd "$dir"
   }
+  ff(){
+    local dir;
+    dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && pushd "$dir"
+  }
   alias fdf='cd $(dirname $(fzf))'
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then

@@ -10,6 +10,7 @@
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -48,15 +49,16 @@ if [ -d "/opt/rocm" ] ; then
 	export PATH=$ROCM_HOME/bin:$PATH
 fi
 
+if type "wsld" > /dev/null 2>&1; then
+  export DISPLAY=:0
+  if ! pgrep wsld >> /dev/null 2>&1 ; then
+	nohup sudo $HOME/bin/wsld > /dev/null < /dev/null 2>&1 &
+	disown
 
-export DISPLAY=:0
-
-if ! pgrep wsld >> /dev/null 2>&1 ; then
-    nohup sudo /home/daiki/bin/wsld > /dev/null < /dev/null 2>&1 &
-    disown
-
-    # sleep until $DISPLAY is up
-    while ! xset q > /dev/null 2>&1 ; do
-        sleep 0.3
-    done
+	# sleep until $DISPLAY is up
+	while ! xset q > /dev/null 2>&1 ; do
+	    sleep 0.3
+	done
+  fi
 fi
+
