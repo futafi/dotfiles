@@ -8,6 +8,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -45,6 +47,7 @@ if [ -d "/opt/rocm" ] ; then
 	export CUPY_INSTALL_USE_HIP=1
 	export PATH=$ROCM_HOME/bin:$PATH
 fi
+
 
 export DISPLAY=:0
 
