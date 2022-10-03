@@ -19,7 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'cohama/lexima.vim'
   Plug 'mattn/vim-lsp-settings'
   Plug 'iberianpig/tig-explorer.vim'
-  Plug 'jpalardy/vim-slime' , { 'branch': 'stable'  }
+  Plug 'jpalardy/vim-slime' , { 'branch': 'main'  }
 call plug#end()
 
 " source ~/.vim/plug-config/neosnippet.vim
