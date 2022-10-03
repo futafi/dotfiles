@@ -73,10 +73,9 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   alias apt="sudo apt"
   alias swapclear="sudo swapoff -a && sudo swapon -a"
   alias exp="caja ."
-  alias docker="sudo docker"
+  # alias docker="sudo docker"
   alias docker-compose="sudo docker-compose"
   alias systemctl="sudo systemctl"
-  eval "$(hub alias -s)"
   
   # fzf
   fbr() {
@@ -100,7 +99,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && pushd "$dir"
   }
   alias fdf='cd $(dirname $(fzf))'
-
+  eval "$(gh completion -s bash)"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   # alias python='winpty python.exe'
   alias py='winpty py'
@@ -108,7 +107,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   alias exp='explorer .'
   alias dlatexmk="docker run --rm -v /$PWD:/workdir latex latexmk"
   alias dlatexmkit="docker run --rm -it -v /$PWD:/workdir latex latexmk"
-  eval "$(hub alias -s bash)"
   alias fzf="winpty fzf"
   alias gnuplot="winpty gnuplot"
   alias clang="clang --target=x86_64--target=x86_64-w64-mingw"
