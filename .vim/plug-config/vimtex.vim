@@ -26,4 +26,20 @@ if has("win32unix")
         \}
 elseif has("unix")
   let g:latex_view_method = 'zathura'
+  let g:vimtex_compiler_latexmk = {
+        \ 'backend' : 'jobs',
+        \ 'background' : 1,
+        \ 'build_dir' : '',
+        \ 'callback' : 1,
+        \ 'continuous' : 0,
+        \ 'executable' : 'docker',
+        \ 'options' : [
+        \   'run',
+        \   '--rm',
+        \   '-v',
+        \   '/$(PWD):/workdir',
+        \   'latex',
+        \   'latexmk',
+        \ ],
+        \}
 endif
