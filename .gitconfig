@@ -5,7 +5,7 @@
 	email = D.futagi@vivaldi.net
 	name = Futafi
 [push]
-	default = nothing
+	default = current
 [alias]
     st = status
     co = checkout
@@ -19,3 +19,5 @@
 	tool = vimdiff
 [ghq]
 	root = /home/daiki/go/src
+[credential]
+	helper = store
