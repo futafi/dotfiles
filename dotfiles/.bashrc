@@ -36,7 +36,6 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-  xterm|xterm-color|*-256color) color_prompt=yes;;
 xterm | xterm-color | *-256color) color_prompt=yes ;;
 esac
 
@@ -122,6 +121,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     export INFOPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/info:$INFOPATH
   fi
 
+  export GID=$(id -g)
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   # MINGW
   chcp.com 65001
@@ -145,8 +145,6 @@ if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
   PS1="\[\e[1;33m\]($WSL_DISTRO_NAME) \[\e[0m\]$PS1"
 fi
 
-export HTTP_HOME=https://www.bing.com/
-export GID=$(id -g)
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f $HOME'/bin/google-cloud-sdk/path.bash.inc' ]; then . $HOME'/bin/google-cloud-sdk/path.bash.inc'; fi
 
