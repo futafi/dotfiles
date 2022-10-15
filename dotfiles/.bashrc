@@ -80,8 +80,11 @@ export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 
 # go path
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-  
+if [ -d "$GOPATH" ]; then
+  export PATH=$GOPATH/bin:$PATH
+else
+  unset GOPATH
+fi
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
