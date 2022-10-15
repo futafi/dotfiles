@@ -37,6 +37,7 @@ fi
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
   xterm|xterm-color|*-256color) color_prompt=yes;;
+xterm | xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -56,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-  if [[ ${EUID} == 0 ]] ; then
+  if [[ ${EUID} == 0 ]]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
   else
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \$\[\033[00m\] '
@@ -68,15 +69,12 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-  xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-  *)
-    ;;
-esac
+xterm* | rxvt*)
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
+*) ;;
 
-# bin file path
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+esac
 
 # go path
 export GOPATH=$HOME/go
@@ -85,6 +83,7 @@ if [ -d "$GOPATH" ]; then
 else
   unset GOPATH
 fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -110,13 +109,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt   #byobu-prompt#
+[ -r $HOME/.byobu/prompt ] && . $HOME/.byobu/prompt #byobu-prompt#
 [ -r $HOME/.virtualenv-auto-activate.sh ] && source $HOME/.virtualenv-auto-activate.sh
 
 # os settings
 if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 
-  if type "latex" > /dev/null 2>&1; then
+  if type "latex" >/dev/null 2>&1; then
     texlive_year=$(latex --version | sed -r "s/\r|\n|.|TeX Live (2[0-9]{3})/\1/g")
     export PATH=/usr/local/texlive/$texlive_year/bin/x86_64-linux:$PATH
     export MANPATH=/usr/local/texlive/$texlive_year/texmf-dist/doc/man:$MANPATH
@@ -133,17 +132,17 @@ fi
 
 # WSL
 if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
-	WSLHOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-	alias gocopy=$HOME/bin/gocopy.exe
-	alias gopaste=$HOME/bin/gopaste.exe
-	alias exp="explorer.exe ."
-	# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
-	#dbus_status=$(service dbus status)
-	#if [[ $dbus_status = *"is not running"* ]]; then
-	#  sudo service dbus --full-restart
-	#fi
-	#[ -z "$PS1" ] && return
-	PS1="\[\e[1;33m\]($WSL_DISTRO_NAME) \[\e[0m\]$PS1"
+  WSLHOST=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+  alias gocopy=$HOME/bin/gocopy.exe
+  alias gopaste=$HOME/bin/gopaste.exe
+  alias exp="explorer.exe ."
+  # export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+  #dbus_status=$(service dbus status)
+  #if [[ $dbus_status = *"is not running"* ]]; then
+  #  sudo service dbus --full-restart
+  #fi
+  #[ -z "$PS1" ] && return
+  PS1="\[\e[1;33m\]($WSL_DISTRO_NAME) \[\e[0m\]$PS1"
 fi
 
 export HTTP_HOME=https://www.bing.com/
@@ -153,4 +152,3 @@ if [ -f $HOME'/bin/google-cloud-sdk/path.bash.inc' ]; then . $HOME'/bin/google-c
 
 # The next line enables shell command completion for gcloud.
 if [ -f $HOME'/bin/google-cloud-sdk/completion.bash.inc' ]; then . $HOME'/bin/google-cloud-sdk/completion.bash.inc'; fi
-
