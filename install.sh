@@ -8,6 +8,9 @@ for f in $DOTFILES;
 do
   ln -snf $DOT_DIR/"$f" $HOME/"$f"
   echo "installed $f"
+  # TODO .vim
+  # fail when $f is dir and $HOME/$f already exist
+  # symbolic link created at $HOME/$f/$f -> $HOME/dotfiles/dotfiles/$f
 done
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
