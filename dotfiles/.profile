@@ -9,8 +9,12 @@
 #umask 022
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+if [ -d "$PYENV_ROOT" ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+else
+    unset PYENV_ROOT
+fi
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
