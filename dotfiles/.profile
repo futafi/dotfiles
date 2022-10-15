@@ -15,11 +15,12 @@ if [ -d "$PYENV_ROOT" ]; then
 else
     unset PYENV_ROOT
 fi
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
@@ -28,12 +29,12 @@ if [ -d "/usr/local/man/ja" ]; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
@@ -62,4 +63,3 @@ if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
         fi
     fi
 fi
-
