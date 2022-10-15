@@ -1,6 +1,6 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
-	excludesfile = /home/daiki/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [user]
 	email = D.futagi@vivaldi.net
 	name = Futafi
@@ -18,6 +18,6 @@
 [merge]
 	tool = vimdiff
 [ghq]
-	root = /home/daiki/go/src
+	root = ~/go/src
 [credential]
 	helper = store
