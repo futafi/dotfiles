@@ -24,6 +24,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   fi
   $INSTALLCMD vim htop tig git curl wget screen bash-completion man tree ncdu ranger
   # TODO install code, github-cli
+  # ttf-cica
 fi
 
 vim +PlugInstall +qall
