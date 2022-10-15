@@ -23,7 +23,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export MANPATH=/usr/local/man/ja:/usr/local/share/man/ja:/usr/share/man/ja:/usr/X11R6/man/ja:/usr/share/man
+if [ -d "/usr/local/man/ja" ]; then
+    export MANPATH=/usr/local/man/ja:/usr/local/share/man/ja:/usr/share/man/ja:/usr/X11R6/man/ja:/usr/share/man
+fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
