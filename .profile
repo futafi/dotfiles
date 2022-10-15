@@ -36,17 +36,19 @@ if [ -d "usr/local/bin" ] ; then
 fi
 
 if [ -d "/opt/rocm" ] ; then
-	export ROCM_PATH=/opt/rocm
-	export HCC_HOME=/opt/rocm/hcc
-	export HIP_PATH=/opt/rocm/hip
-	export PATH=$HCC_HOME/bin:$HIP_PATH/bin:$PATH
-
-	export HCC_AMDGPU_TARGET=gfx803
-	export __HIP_PLATFORM_HCC__
-
-	export ROCM_HOME=/opt/rocm
-	export CUPY_INSTALL_USE_HIP=1
-	export PATH=$ROCM_HOME/bin:$PATH
+#	export ROCM_PATH=/opt/rocm
+#	export HCC_HOME=/opt/rocm/hcc
+#	export HIP_PATH=/opt/rocm/hip
+#	export PATH=$HCC_HOME/bin:$HIP_PATH/bin:$PATH
+#
+#	export HCC_AMDGPU_TARGET=gfx803
+#	export __HIP_PLATFORM_HCC__
+#
+#	export ROCM_HOME=/opt/rocm
+#	export CUPY_INSTALL_USE_HIP=1
+#	export PATH=$ROCM_HOME/bin:$PATH
+	export LD_LIBRARY_PATH=/opt/rocm/lib;
+	export PATH="$PATH:/opt/rocm/bin:/opt/rocm/opencl/bin"
 fi
 
 if type "wsld" > /dev/null 2>&1; then
