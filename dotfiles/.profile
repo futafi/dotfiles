@@ -47,16 +47,19 @@ if [ -d "/opt/rocm" ]; then
     export PATH="$PATH:/opt/rocm/bin:/opt/rocm/opencl/bin"
 fi
 
-if type "wsld" > /dev/null 2>&1; then
-  export DISPLAY=:0
-  if ! pgrep wsld >> /dev/null 2>&1 ; then
-	nohup sudo $HOME/bin/wsld > /dev/null < /dev/null 2>&1 &
-	disown
+# for wsld settings
+if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
+    if type "wsld" >/dev/null 2>&1; then
+        export DISPLAY=:0
+        if ! pgrep wsld >>/dev/null 2>&1; then
+            nohup sudo $HOME/bin/wsld >/dev/null </dev/null 2>&1 &
+            disown
 
-	# sleep until $DISPLAY is up
-	while ! xset q > /dev/null 2>&1 ; do
-	    sleep 0.3
-	done
-  fi
+            # sleep until $DISPLAY is up
+            while ! xset q >/dev/null 2>&1; do
+                sleep 0.3
+            done
+        fi
+    fi
 fi
 
