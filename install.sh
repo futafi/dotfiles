@@ -15,9 +15,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     INSTALLCMD="sudo apt install -y "
     sudo apt update
   elif type "pacman" >/dev/null 2>/&1; then
-    sudo pacman -S --needed --noconfirm base-devel git
-    git clone https://aur.archlinux.org/paru.git
-    sh -c "cd paru && makepkg -rsi"
+    if !(type "paru" >/dev/null 2>/&1); then
+	sudo pacman -S --needed --noconfirm base-devel git
+	git clone https://aur.archlinux.org/paru.git
+	sh -c "cd paru && makepkg -rsi"
+    fi
     INSTALLCMD="sudo paru -S --noconfirm "
   fi
   $INSTALLCMD vim htop tig git curl wget screen bash-completion man tree ncdu ranger
