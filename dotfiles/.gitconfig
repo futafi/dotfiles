@@ -20,3 +20,5 @@
 	root = ~/go/src
 [credential]
 	helper = store
+[init]
+	defaultBranch = main
