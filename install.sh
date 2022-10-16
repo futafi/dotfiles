@@ -32,4 +32,12 @@ fi
 
 vim +PlugInstall +qall
 
+kIIDIR=$SCRIPT_DIR/kiiconfig
+if [ ! -d "$SCRIPT_DIR/kiiconfig" ]; then
+  git clone git@github.com:futafi/kiiconfig.git $kIIDIR
+else
+  sh -c "cd $kIIDIR && git pull"
+fi
+$kIIDIR/install.sh
+
 source $HOME/.bashrc
