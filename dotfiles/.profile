@@ -8,6 +8,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+export EDITOR=/usr/bin/vim
 export PYENV_ROOT="$HOME/.pyenv"
 if [ -d "$PYENV_ROOT" ]; then
     export PATH="$PYENV_ROOT/bin:$PATH"
