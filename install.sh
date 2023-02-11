@@ -25,7 +25,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     fi
     INSTALLCMD="sudo paru -S --noconfirm "
   fi
-  $INSTALLCMD vim htop tig git curl wget screen bash-completion man tree ncdu ranger
+  $INSTALLCMD vim htop tig git curl wget screen bash-completion man tree ncdu ranger libreoffice-still libreoffice-extension-texmaths rclone libu2f-host
   # TODO install code, github-cli
   # ttf-cica
 fi
