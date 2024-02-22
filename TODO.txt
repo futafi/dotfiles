@@ -1,0 +1,6 @@
+add tailscale
+add tailscale-systray for linux
+libreoffice-still
+libreoffice-extension-texmaths
+rclone
+libu2f-host # libu2f-udev
