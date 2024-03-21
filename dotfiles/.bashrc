@@ -150,3 +150,5 @@ if [ -f $HOME'/bin/google-cloud-sdk/path.bash.inc' ]; then . $HOME'/bin/google-c
 
 # The next line enables shell command completion for gcloud.
 if [ -f $HOME'/bin/google-cloud-sdk/completion.bash.inc' ]; then . $HOME'/bin/google-cloud-sdk/completion.bash.inc'; fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

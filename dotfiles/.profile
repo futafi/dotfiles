@@ -63,3 +63,5 @@ if [ -e "/proc/sys/fs/binfmt_misc/WSLInterop" ]; then
         fi
     fi
 fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
