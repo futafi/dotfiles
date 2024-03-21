@@ -83,19 +83,6 @@ else
   unset GOPATH
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
-# local bashrc
-if [ -f ~/.bashrc_local ]; then
-  . ~/.bashrc_local
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -152,3 +139,17 @@ if [ -f $HOME'/bin/google-cloud-sdk/path.bash.inc' ]; then . $HOME'/bin/google-c
 if [ -f $HOME'/bin/google-cloud-sdk/completion.bash.inc' ]; then . $HOME'/bin/google-cloud-sdk/completion.bash.inc'; fi
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+# local bashrc
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi

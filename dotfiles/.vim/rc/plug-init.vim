@@ -1,7 +1,7 @@
 " plugins
 call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdcommenter'
-  Plug 'lervag/vimtex'
+  " Plug 'lervag/vimtex'
   " Plug 'Shougo/neosnippet.vim'
   " Plug 'Shougo/neosnippet-snippets'
   Plug 'SirVer/ultisnips'
@@ -20,12 +20,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/vim-lsp-settings'
   Plug 'iberianpig/tig-explorer.vim'
   Plug 'jpalardy/vim-slime' , { 'branch': 'main'  }
+  Plug 'github/copilot.vim'
 call plug#end()
 
 " source ~/.vim/plug-config/neosnippet.vim
 source ~/.vim/plug-config/ultisnips.vim
 source ~/.vim/plug-config/vim-lsp.vim
-source ~/.vim/plug-config/vimtex.vim
+" source ~/.vim/plug-config/vimtex.vim
 source ~/.vim/plug-config/nerdcommenter.vim
 source ~/.vim/plug-config/vim-test.vim
 source ~/.vim/plug-config/vim-emoji.vim

@@ -1,33 +1,33 @@
 [core]
-	editor = vim -c \"set fenc=utf-8\"
-	excludesfile = ~/.gitignore_global
+editor = vim -c \"set fenc=utf-8\"
+excludesfile = ~/.gitignore_global
 [user]
-	email = D.futagi@vivaldi.net
-	name = futafi
+email = D.futagi@vivaldi.net
+name = futafi
 [push]
-	default = current
+default = current
 [alias]
-    st = status
-    co = checkout
-    br = branch
-    ci = commit
-    sw = switch
-    graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
-    tree = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+st = status
+co = checkout
+br = branch
+ci = commit
+sw = switch
+graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+tree = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [merge]
-	tool = vimdiff
+tool = vimdiff
 [ghq]
-	root = ~/go/src
+root = ~/go/src
 [credential]
-	helper = store
+helper = store
 [init]
-	defaultBranch = main
+defaultBranch = main
 [credential "https://github.com"]
-	helper = !/usr/bin/gh auth git-credential
+helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = !/usr/bin/gh auth git-credential
+helper = !/usr/bin/gh auth git-credential
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true

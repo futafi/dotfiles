@@ -1,4 +1,5 @@
 dotfiles/.vim/plugged/
 dotfiles/.vim/.netrwhist
+bin/*
 kiiconfig
 *:com.dropbox.attrs
