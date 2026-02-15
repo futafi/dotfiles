@@ -85,6 +85,15 @@ set wrapscan
 set hlsearch
 " ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" " findのpath設定
+" pathをリセットしてカレントディレクトリのみに
+set path=.,
+" プロジェクトルートを再帰検索. 4階層まで
+set path+=*,*/*,*/*/*,*/*/*/*
+" 一部除外
+set wildignore+=*/node_modules/*,*/target/*,*/.git/*,*/build/*,*/dist/*,*/.venv/*
+" よく使うディレクトリ
+set path+=src/**,include/**,lib/**
 
 " " 入力系
 " 補完の大文字小文字の無視

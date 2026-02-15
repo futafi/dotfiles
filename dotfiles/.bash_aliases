@@ -7,6 +7,7 @@ alias v="vim"
 alias vi="vim"
 alias please='sudo $(fc -ln -1)'
 alias diary="vim $HOME/Dropbox/memo/diary.md"
+alias dev="~/.claude/scripts/tmux-dev-session.sh"
 function md ()
 {
     mkdir -p -- "$1"
@@ -25,6 +26,30 @@ function pdfcropm ()
   pdfcrop "$1" "$tempfile"
   mv "$tempfile" "$1"
   echo cropped $1
+}
+continue-claude-at() {
+    local time_arg="$1"
+    local pane_number="$2"
+    
+    if [[ -z "$time_arg" ]]; then
+        echo "Usage: continue-claude-at <time> [pane_number]"
+        return 1
+    fi
+    
+    # pane番号が指定されていない場合
+    if [[ -z "$pane_number" ]]; then
+        echo "Select pane number:"
+        tmux display-panes -d 1500
+        echo -n "Enter pane number: "
+        read pane_number
+    fi
+    
+    # atコマンドで指定時刻にtmuxコマンドを実行
+    echo "tmux send-keys -t $pane_number 'continue'&&tmux send-keys -t $pane_number Enter" | at "$time_arg"
+    
+    echo "Scheduled 'continue' for pane $pane_number at $time_arg"
+}
+
 }
 alias unittest='python -m unittest'
 alias open='xdg-open'
@@ -99,6 +124,78 @@ if [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
     dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && pushd "$dir"
   }
   alias fdf='cd $(dirname $(fzf))'
+  # tm function with select functionality
+  tm() {
+	case "$1" in
+	    "ls" | "list")
+		  tmux list-sessions
+		  ;;
+	    "sel" | "select")
+		  local sessions=($(tmux list-sessions -F "#{session_name}" 2>/dev/null))
+		  if [ ${#sessions[@]} -eq 0 ]; then
+			echo "No active sessions"
+			return 1
+		  fi
+		  
+		  echo "Select a session:"
+		  for i in "${!sessions[@]}"; do
+			echo "$((i+1))) ${sessions[i]}"
+		  done
+		  
+		  read -p "Enter number (1-${#sessions[@]}): " choice
+		  if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#sessions[@]} ]; then
+			local selected_session="${sessions[$((choice-1))]}"
+			echo "Attaching to: $selected_session"
+			tmux attach -t "$selected_session"
+		  else
+			echo "Invalid choice"
+			return 1
+		  fi
+		  ;;
+	    "kill")
+		  if [ -n "$2" ]; then
+			tmux kill-session -t "$2"
+			echo "Killed session: $2"
+		  else
+			echo "Usage: tm kill SESSION_NAME"
+		  fi
+		  ;;
+	    "help")
+		  echo "Usage:"
+		  echo "  tm               - attach to existing or create new session"
+		  echo "  tm NAME          - attach to or create named session"
+		  echo "  tm ls            - list sessions"
+		  echo "  tm sel/select    - select session interactively"
+		  echo "  tm kill NAME     - kill named session"
+		  echo "  tm help          - show this help"
+		  ;;
+	    "")
+		  tmux attach 2>/dev/null || tmux new
+		  ;;
+	    *)
+		  tmux attach -t "$1" 2>/dev/null || tmux new -s "$1"
+		  ;;
+	esac
+  }
+
+  # bash completion for tm
+  _tm_completion() {
+	local cur="${COMP_WORDS[COMP_CWORD]}"
+	local prev="${COMP_WORDS[COMP_CWORD-1]}"
+	
+	if [ $COMP_CWORD -eq 1 ]; then
+	    # 第一引数の補完：コマンド + セッション名
+	    local commands="ls list sel select kill help"
+	    local sessions=$(tmux list-sessions -F "#{session_name}" 2>/dev/null)
+	    COMPREPLY=($(compgen -W "$commands $sessions" -- "$cur"))
+	elif [ $COMP_CWORD -eq 2 ] && [ "$prev" = "kill" ]; then
+	    # tm kill の後はセッション名のみ
+	    local sessions=$(tmux list-sessions -F "#{session_name}" 2>/dev/null)
+	    COMPREPLY=($(compgen -W "$sessions" -- "$cur"))
+	fi
+  }
+
+  complete -F _tm_completion tm
   eval "$(gh completion -s bash)"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'MINGW' ]; then
   # alias python='winpty python.exe'
