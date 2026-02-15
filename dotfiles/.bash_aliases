@@ -50,7 +50,6 @@ continue-claude-at() {
     echo "Scheduled 'continue' for pane $pane_number at $time_arg"
 }
 
-}
 alias unittest='python -m unittest'
 alias open='xdg-open'
 ## enable color support of ls and also add handy aliases
